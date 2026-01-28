@@ -192,9 +192,8 @@ const (
 	TOKENS_ID_URL                    = `/api/tokens/%s`
 	TOKENS_CAPABILITIES_URL          = `/api/tokens/capabilities`
 	SECRETS_URL                      = `/api/secrets`
-	SECRETS_LIST_URL                 = `/api/secrets/list`
 	SECRETS_ID_URL                   = `/api/secrets/%s`
-	SECRETS_ID_VALUE_URL             = `/api/secrets/%s/value`
+	SECRETS_ID_DETAILS_URL           = `/api/secrets/%s/details`
 	SECRETS_ID_FULL_URL              = `/api/secrets/%s/full`
 	SETTINGS_URL                     = `/api/settings`
 	INGESTERS_TRACKING_URL           = `/api/ingesters/%s/tracking`
@@ -640,16 +639,15 @@ func secretsUrl() string {
 	return SECRETS_URL
 }
 
-func secretIdUrl(id string) string {
-	return fmt.Sprintf(SECRETS_ID_URL, id)
+func secretIdUrl(id uuid.UUID) string {
+	return fmt.Sprintf(SECRETS_ID_URL, id.String())
 }
 
-func secretIdValueUrl(id string) string {
-	return fmt.Sprintf(SECRETS_ID_VALUE_URL, id)
+func secretIdDetailsUrl(id uuid.UUID) string {
+	return fmt.Sprintf(SECRETS_ID_DETAILS_URL, id.String())
 }
-
-func secretIdFullUrl(id string) string {
-	return fmt.Sprintf(SECRETS_ID_FULL_URL, id)
+func secretIdFullUrl(id uuid.UUID) string {
+	return fmt.Sprintf(SECRETS_ID_FULL_URL, id.String())
 }
 
 func searchLaunchUrl() string {
