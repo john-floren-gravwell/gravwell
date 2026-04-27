@@ -63,13 +63,12 @@ func (t *ActionableTrigger) UnmarshalJSON(data []byte) error {
 
 // ActionableAction defines an action that can be performed when an actionable is triggered.
 type ActionableAction struct {
-	Name             string                  `json:"name"`
-	Description      string                  `json:"description"`
-	Placeholder      string                  `json:"placeholder"`
-	NoValueURLEncode bool                    `json:"noValueUrlEncode,omitempty"`
-	Start            *ActionableTimeVariable `json:"start,omitempty"`
-	End              *ActionableTimeVariable `json:"end,omitempty"`
-	Command          ActionableCommand       `json:"command"`
+	Name        string                  `json:"name"`
+	Description string                  `json:"description"`
+	Placeholder string                  `json:"placeholder"`
+	Start       *ActionableTimeVariable `json:"start,omitempty"`
+	End         *ActionableTimeVariable `json:"end,omitempty"`
+	Command     ActionableCommand       `json:"command"`
 }
 
 // ActionableTimeVariable describes time-range options for an action's start or end.
